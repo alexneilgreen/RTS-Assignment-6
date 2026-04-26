@@ -22,8 +22,6 @@ A separate emergency stop slide switch (SW1) can be thrown at any time. When act
 
 ## Tasks
 
-### Task Table
-
 | Task                         | Period                      | H/S      | Miss Consequence                                                       |
 | ---------------------------- | --------------------------- | -------- | ---------------------------------------------------------------------- |
 | `handleBrakeSensor` (ISR)    | Interrupt-driven, immediate | **Hard** | Vehicle enters brake zone without braking = collision or overrun       |
@@ -31,5 +29,3 @@ A separate emergency stop slide switch (SW1) can be thrown at any time. When act
 | `taskMotor` (Priority 3)     | 10 ms poll                  | **Hard** | Brake signal missed or dispatch ignored = vehicle control lost         |
 | `taskDisplay` (Priority 2)   | 100 ms                      | **Soft** | Bar graph lags or telemetry drops a frame = cosmetic/diagnostic only   |
 | `taskHeartbeat` (Priority 1) | 1000 ms (full cycle)        | **Soft** | LED stops blinking, indicates system hang = no immediate safety impact |
-
----
