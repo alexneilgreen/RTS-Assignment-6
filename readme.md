@@ -14,6 +14,12 @@ A separate emergency stop slide switch (SW1) can be thrown at any time. When act
 
 ---
 
+## Demonstration Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/huG63geHwBI?si=vOq56vD5rQy_1U9a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ## Tasks
 
 ### Task Table

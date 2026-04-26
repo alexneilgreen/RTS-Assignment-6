@@ -38,3 +38,7 @@ section li {
 section img {
 	padding: 5px;
 }
+
+code.highlighter-rouge {
+	color: #90caf9;
+}
