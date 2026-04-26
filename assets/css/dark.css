@@ -1,0 +1,40 @@
+body {
+	background-color: #1e1e1e;
+}
+
+a {
+	color: #90caf9;
+}
+
+a:hover {
+	color: #bbdefb;
+}
+
+header,
+footer {
+	background-color: #1e1e1e;
+	color: #9f988c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #ffffff;
+}
+
+strong,
+b {
+	color: #ffffff;
+}
+
+section p,
+section li {
+	color: #9f988c;
+}
+
+section img {
+	padding: 5px;
+}

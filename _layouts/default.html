@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/dark.css' | relative_url }}" id="dark-mode-stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -30,6 +32,11 @@
         {% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
+				
+        <button id="theme-toggle-button" style="background-color: #f0f0f0; border: none; border-radius: 8px; padding: 10px 15px; font-size: 1.1em; cursor: pointer; margin-top: 8px; color: #333; display: flex; align-items: center; gap: 0.5em;">
+          <span id="theme-toggle-icon" class="fa fa-moon-o"></span>
+          <span id="theme-toggle-label">Dark Mode</span>
+        </button>
 
         {% if site.show_downloads %}
         <ul class="downloads">
@@ -52,5 +59,49 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      const themeToggleButton = document.getElementById('theme-toggle-button');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');
+      const themeToggleLabel = document.getElementById('theme-toggle-label');
+      const darkModeStylesheet = document.getElementById('dark-mode-stylesheet');
+
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          darkModeStylesheet.disabled = false;
+          themeToggleIcon.className = 'fa fa-moon-o';
+          themeToggleLabel.textContent = 'Dark mode';
+          themeToggleButton.style.backgroundColor = '#333';
+          themeToggleButton.style.color = '#f0f0f0';
+          themeToggleButton.setAttribute('aria-label', 'Switch to light mode');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          darkModeStylesheet.disabled = true;
+          themeToggleIcon.className = 'fa fa-sun-o';
+          themeToggleLabel.textContent = 'Light mode';
+          themeToggleButton.style.backgroundColor = '#f0f0f0';
+          themeToggleButton.style.color = '#333';
+          themeToggleButton.setAttribute('aria-label', 'Switch to dark mode');
+          localStorage.setItem('theme', 'light');
+        }
+      }
+
+      themeToggleButton.addEventListener('click', () => {
+        const currentTheme = localStorage.getItem('theme') || (darkModeStylesheet.disabled ? 'light' : 'dark');
+        if (currentTheme === 'dark') {
+          setTheme('light');
+        } else {
+          setTheme('dark');
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          setTheme(savedTheme);
+        } else {
+          setTheme('dark');
+        }
+      });
+    </script>
   </body>
 </html>
