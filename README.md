@@ -127,7 +127,7 @@ Emergency Stop Cleared. Ready for dispatch.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/UCF-RealTimeSystems-RideBrakingSystem-Application6.git
+git clone https://github.com/alexneilgreen/UCF-RealTimeSystems-RideBrakingSystem-Application6.git
 cd UCF-RealTimeSystems-RideBrakingSystem-Application6
 
 # 2. Open in Wokwi (recommended)
